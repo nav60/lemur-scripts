@@ -1,0 +1,15 @@
+First,go inside the cfssl_certs directory and then run the CFSSL PKI using following command. 
+
+cfssl serve -address 192.168.10.80 -ca root_ca.pem -ca-key root_ca-key.pem -port 8888
+
+cfssl serve -address ip-addr-of-machine -ca root_ca.pem -ca-key root_ca-key.pem -port 8888
+
+NOTE: The following command is just guide to use the cfssl utility.
+
+{ cfssl serve [-address address] [-ca cert] [-ca-bundle bundle] \
+            [-ca-key key] [-int-bundle bundle] [-int-dir dir] [-port port] \
+            [-metadata file] [-remote remote_host] [-config config] \
+            [-responder cert] [-responder-key key] [-db-config db-config]      }
+			
+
+L
