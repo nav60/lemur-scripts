@@ -1,0 +1,107 @@
+
+# This is just Python which means you can inherit and tweak settings
+
+import os
+_basedir = os.path.abspath(os.path.dirname(__file__))
+
+THREADS_PER_PAGE = 8
+
+# General
+
+# These will need to be set to `True` if you are developing locally
+CORS = True	
+debug = True
+#CORS = False
+#debug = False
+
+# this is the secret key used by flask session management
+SECRET_KEY = '/QLYsMVSlRy/glqv0htv66k6QjLnC2xJP2+DUsHGHMB91bTOH76gWw=='
+
+# You should consider storing these separately from your config
+LEMUR_TOKEN_SECRET = 'G9h2suLHZsvuLI5KLLuDimgmLpo1tNdmnl9cDjIbpJ6gQhmlOlTfzw=='
+LEMUR_ENCRYPTION_KEYS = 'c0JwjGD5NWVO-z74mIH65resxWUoCYUXIEi5vaHxMSQ='
+
+# List of domain regular expressions that non-admin users can issue
+LEMUR_WHITELISTED_DOMAINS = []
+
+# Mail Server
+
+LEMUR_EMAIL = 'test@gmail.com'
+LEMUR_SECURITY_TEAM_EMAIL = 'test@gmail.com'
+
+#
+# Certificate Defaults
+
+LEMUR_DEFAULT_COUNTRY = 'US'
+LEMUR_DEFAULT_STATE = 'CAL'
+LEMUR_DEFAULT_LOCATION = 'NEWYORK'
+LEMUR_DEFAULT_ORGANIZATION = 'TEST'
+LEMUR_DEFAULT_ORGANIZATIONAL_UNIT = 'TEST-123'
+
+# Authentication Providers
+ACTIVE_PROVIDERS = []
+
+# Logging
+
+LOG_LEVEL = "DEBUG"
+LOG_FILE = "/home/lemur/lemur.log"
+
+
+# Database
+
+# modify this if you are not using a local database
+SQLALCHEMY_DATABASE_URI = 'postgresql://lemur:lemur@localhost:5432/lemur'
+
+
+#CFSSL_URL =http://192.168.10.80:8888/api/v1/cfssl/newcert
+#CFSSL_URL ="http://192.168.10.80:8888/api/v1"
+CFSSL_URL ="http://192.168.10.80:8888"
+
+CFSSL_ROOT ="""-----BEGIN CERTIFICATE-----
+MIICcjCCAhegAwIBAgIUahfYPc4RpK92G1ZHhu3q9URvf+8wCgYIKoZIzj0EAwIw
+gYUxCzAJBgNVBAYTAlVLMQ8wDQYDVQQHEwZMb25kb24xGDAWBgNVBAoTD015IE9y
+Z2FuaXNhdGlvbjE2MDQGA1UECxMtTXkgT3JnYW5pc2F0aW9uYWwgVW5pdCBJbnNp
+ZGUgTXkgT3JnYW5pc2F0aW9uMRMwEQYDVQQDEwpNWS1ST09ULUNBMB4XDTE3MTEw
+MTE0MDgwMFoXDTQ3MTAyNTE0MDgwMFowgYUxCzAJBgNVBAYTAlVLMQ8wDQYDVQQH
+EwZMb25kb24xGDAWBgNVBAoTD015IE9yZ2FuaXNhdGlvbjE2MDQGA1UECxMtTXkg
+T3JnYW5pc2F0aW9uYWwgVW5pdCBJbnNpZGUgTXkgT3JnYW5pc2F0aW9uMRMwEQYD
+VQQDEwpNWS1ST09ULUNBMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEltNQKb+v
+vuAJdJ29vER0TL8lnSqEUtDRT77sah95lfgTcfanAQgf/5g6Y9vplNfmo96pwQvX
+lzbsD58ORrbrR6NjMGEwDgYDVR0PAQH/BAQDAgEGMA8GA1UdEwEB/wQFMAMBAf8w
+HQYDVR0OBBYEFJS58zrcJmcvE3M8uLuiPWDhPho4MB8GA1UdIwQYMBaAFJS58zrc
+JmcvE3M8uLuiPWDhPho4MAoGCCqGSM49BAMCA0kAMEYCIQCoJBnaTin33Y6wDCng
+9UmEM4IEd2j8/w4WdTYaBE5EzwIhAN3oW9iAmjcyzC/7BPIY/Sr+twig/+XwnQ8T
+hKXP2OHd
+-----END CERTIFICATE-----"""
+
+CFSSL_INTERMEDIATE ="""-----BEGIN CERTIFICATE-----
+MIICfDCCAiKgAwIBAgIUEeb8Duel8wySG61vCM2UEUD15XQwCgYIKoZIzj0EAwIw
+gYUxCzAJBgNVBAYTAlVLMQ8wDQYDVQQHEwZMb25kb24xGDAWBgNVBAoTD015IE9y
+Z2FuaXNhdGlvbjE2MDQGA1UECxMtTXkgT3JnYW5pc2F0aW9uYWwgVW5pdCBJbnNp
+ZGUgTXkgT3JnYW5pc2F0aW9uMRMwEQYDVQQDEwpNWS1ST09ULUNBMB4XDTE3MTEw
+MTE2MDEwMFoXDTQ3MTAyNTE2MDEwMFowgY0xCzAJBgNVBAYTAlVLMQ8wDQYDVQQH
+EwZMb25kb24xGDAWBgNVBAoTD015IE9yZ2FuaXNhdGlvbjE2MDQGA1UECxMtTXkg
+T3JnYW5pc2F0aW9uYWwgVW5pdCBJbnNpZGUgTXkgT3JnYW5pc2F0aW9uMRswGQYD
+VQQDExJNeS1JbnRlcm1lZGlhdGUtQ0EwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNC
+AASuw3Iqyqtk2+7IO7v5HDBnv5a8uEsLsWcQowXE/f/6oQaSUeWXLe94EnVX0+gT
+wq95/7gCBShcfKrUqzJhkEAMo2YwZDAOBgNVHQ8BAf8EBAMCAYYwEgYDVR0TAQH/
+BAgwBgEB/wIBADAdBgNVHQ4EFgQUpBxkvlQ3xRIPv6HyDbfris8lg6gwHwYDVR0j
+BBgwFoAUlLnzOtwmZy8Tczy4u6I9YOE+GjgwCgYIKoZIzj0EAwIDSAAwRQIgeTBn
+7qq0I8fPO/RFN+z6sPilCT389lge2puhzaJlw8ACIQDjGXDr/jijRb4OI5o3L+/V
+qM9lE82tku/b6SMxAlBByQ==
+-----END CERTIFICATE-----"""
+
+# AWS
+
+#LEMUR_INSTANCE_PROFILE = 'Lemur'
+
+# Issuers
+
+# These will be dependent on which 3rd party that Lemur is
+# configured to use.
+
+# VERISIGN_URL = ''
+# VERISIGN_PEM_PATH = ''
+# VERISIGN_FIRST_NAME = ''
+# VERISIGN_LAST_NAME = ''
+# VERSIGN_EMAIL = ''
